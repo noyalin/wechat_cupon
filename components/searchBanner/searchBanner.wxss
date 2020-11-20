@@ -1,0 +1,11 @@
+/* components/banner/searchBanner.wxss */
+.banner {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.search-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
