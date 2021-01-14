@@ -4,7 +4,8 @@
     <view>
       <mp-icon type="outline" icon="location" color="black" size="{{16}}"></mp-icon>
     </view>
-    <view class="address">{{region||"请选择"}}</view>
+    <view class="address">{{region||"请选择"}} </view>
+    <view> > </view>
   </view>
 </view>
 <popup visible="{{visible}}" onClose="closePopUp">

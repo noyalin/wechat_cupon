@@ -26,7 +26,7 @@ Component({
 
   lifetimes: {
     attached: function () {
-      getUserLocation((data)=> {
+      getUserLocation((data) => {
         this.setLocation(data)
       })
     }
@@ -37,8 +37,18 @@ Component({
    */
   methods: {
     setLocation(data) {
+      const { province, city } = data.result.addressComponent
+
+      console.log(province, city,)
+      const currentProvince = address.provinces.find(d => d.name === province)
+      const currentCitys = address.citys[currentProvince.id]
       this.setData({
-        region: data.result.addressComponent.city
+        provinces: address.provinces, // 34省
+        citys: currentCitys,
+        region: data.result.addressComponent.city,
+        regionValue: [
+          address.provinces.findIndex(d => d.name === province), 
+          currentCitys.findIndex(d => d.name === city)]
       })
     },
 
@@ -110,7 +120,7 @@ Component({
       let value = this.data.regionValue
       let provinceId = address.provinces[value[0]].id
       let townId = address.citys[provinceId][value[1]].id
-    
+
 
       if (type === 'provinceId') {
         return provinceId
@@ -155,7 +165,7 @@ Component({
           // lastAreas: this.data.areas,
           regionValue: [...this.data.value]
         }, () => {
-          console.log(`省份ID：${this.getRegionId('provinceId')}: 市区ID：${this.getRegionId('townId')}：城区ID：${this.getRegionId('areas')}`)
+          console.log(`省份ID：${this.getRegionId('provinceId')}: 市区ID：${this.getRegionId('townId')}`)
         })
       }
     },
