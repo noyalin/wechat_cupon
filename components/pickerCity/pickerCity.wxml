@@ -1,7 +1,7 @@
 <!--components/pickerCity/pickerCity.wxml-->
 <view class="address-item" bindtap="pickAddress">
   <view class="item-title">
-    <view>
+    <view class="icon-wrap">
       <mp-icon type="outline" icon="location" color="black" size="{{16}}"></mp-icon>
     </view>
     <view class="address">{{region||"请选择"}} </view>

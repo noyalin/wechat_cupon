@@ -17,6 +17,10 @@
   width: 100%;
 }
 
+.icon-wrap {
+  font-size: 0;
+}
+
 .address {
   white-space: nowrap;
   overflow: hidden;
