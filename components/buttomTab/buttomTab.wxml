@@ -1,0 +1,12 @@
+<!--components/buttomTab/buttomTab.wxml-->
+<view class="buttom-tab-box">
+  <button bindtap="viewCupon">
+    <image class="cupon" src="../../images/cupon.svg"></image>
+    <text>我的优惠券(1)</text>
+  </button>
+  <view class="line">|</view>
+  <button open-type='share'>
+    <image class="share" src="../../images/share.svg"></image>
+    <text> 分享优惠</text>
+  </button>
+</view>

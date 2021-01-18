@@ -1,0 +1,35 @@
+/* components/buttomTab/buttomTab.wxss */
+.buttom-tab-box {
+  width: 100%;
+  display: flex;
+  background: #ffffff;
+  height: 110rpx;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #eee;
+}
+
+.buttom-tab-box button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  font-weight: normal;
+  font-size: 30rpx;
+  height: 80rpx;
+}
+
+.buttom-tab-box .cupon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.buttom-tab-box .share {
+  width: 30rpx;
+  height: 30rpx;
+  padding: 0 4rpx;
+}
+
+.buttom-tab-box .line {
+  color: #eee;
+}

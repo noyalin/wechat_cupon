@@ -28,6 +28,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    onScroll() {
+
+    },
+    
     setTabs() {
       const titles = ['首页', '外卖', '商超生鲜', '购物', '美食饮品', '生活服务', '休闲娱乐', '出行']
       const tabs = titles.map((item,i) => ({title: item, active: i === 0}))

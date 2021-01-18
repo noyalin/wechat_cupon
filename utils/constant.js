@@ -1,4 +1,4 @@
-const baiduAk = "cUOY6oDM0gpNadNcihdHv7cn8OB8GwtY"
+const baiduAk = "DKnT4gBkkriYjQz2x9lU911MnsqPiTPv"
 
 module.exports = {
   baiduAk

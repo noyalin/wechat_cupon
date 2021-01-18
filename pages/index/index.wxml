@@ -1,9 +1,12 @@
 <!--index.wxml-->
 <view class="container">
+  <!-- <view style="position:fixed;bottom:0;width:100%;left:0;right:0;">
+    <button open-type='share'>分享</button>
+  </view> -->
   <search-banner></search-banner>
   <view>
     <tab-box></tab-box>
   </view>
 
-  <mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar>
+  <bottom-tab style="position:fixed;bottom:0;width:100%;left:0;right:0;"></bottom-tab>
 </view>

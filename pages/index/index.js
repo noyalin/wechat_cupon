@@ -5,13 +5,13 @@ const app = getApp()
 Page({
   data: {
     list: [{
-      "text": "我的优惠券"
+      "text": "我的优惠券(1)"
     },
     {
-        "text": "分享优惠"
+      "text": "分享优惠"
     }]
   },
-  
+
   onLoad: function () {
   },
 
@@ -23,5 +23,5 @@ Page({
 
   onScroll(e) {
     console.log('onScroll', e)
-  }
+  },
 })

@@ -1,5 +1,6 @@
 
-const { baiduAk } = require('./constant.js')
+const { baiduAk, appId, appSecret } = require('./constant.js')
+const { http } = require('./http.js')
 
 const formatTime = date => {
   const year = date.getFullYear()
@@ -19,17 +20,10 @@ const formatNumber = n => {
 
 // 通过百度api获取经纬度对应的城市
 const curCity = (longitude, latitude, callback) => {
-  wx.request({
-    url: `https://api.map.baidu.com/reverse_geocoding/v3/?ak=${baiduAk}&location=${latitude},${longitude}&output=json&pois=1`,
-    data: {},
-    header: {
-      'Content-Type': 'application/json'
-    },
-    success: ({ data }) => {
-      if (callback) callback(data)
-    }
+  const url = `https://api.map.baidu.com/reverse_geocoding/v3/?ak=${baiduAk}&location=${latitude},${longitude}&output=json&pois=1`
+  http.get(url).then(({ data }) => {
+    if (callback) callback(data)
   })
-
 }
 
 // 获取经纬度
@@ -58,6 +52,7 @@ const getUserLocation = (callback) => {
           title: '请求授权当前位置',
           content: '喜欢房需要获取您的地理位置，请确认授权',
           success: function (res) {
+            debugger
             if (res.cancel) {
               wx.showToast({
                 title: '拒绝授权',
@@ -93,11 +88,26 @@ const getUserLocation = (callback) => {
         //调用wx.getLocation的API
         getLocation(callback);
       }
+    },
+    fail: (res) => {
+      console.log('fail', res)
+    },
+    complete: (res) => {
+      console.log('complete', res)
     }
+  })
+}
+
+const getToken = (callback) => {
+  const url = `https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${appId}&secret=${appSecret}`
+
+  http.get(url).then(({ data }) => {
+    if (callback) callback(data)
   })
 }
 
 module.exports = {
   formatTime: formatTime,
-  getUserLocation
+  getUserLocation,
+  getToken
 }
